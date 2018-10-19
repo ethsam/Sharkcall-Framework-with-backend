@@ -1,0 +1,3 @@
+<?php
+    $databaseConnection = new Database;
+?>
