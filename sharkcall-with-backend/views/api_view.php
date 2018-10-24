@@ -1,3 +1,3 @@
 <?php
-    var_dump($responseReq);
+    echo json_encode($responseReq);
 ?>
