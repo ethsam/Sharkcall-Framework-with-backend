@@ -547,7 +547,7 @@
              */
             public function readAllImg($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT *  FROM `img`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `img`');
                 } else {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `img` WHERE `idimg` = ' . $int);
                 }
@@ -557,6 +557,33 @@
                 return $json;
             }
 
+            /**
+            * public function updateAltMedia()
+            * @param array = ARRAY
+            * @return Boolean = True or False
+            * @date 09-10-2018
+            * @author Samuel Ethève - https://ethsam.fr
+            */
+            public function updateAltMedia($array) {
+                $id = $array[0];
+                $altFr = isset($array[1]) ? $array[1] : NULL;
+                $altEn = isset($array[2]) ? $array[2] : NULL;
+                $altEs = isset($array[3]) ? $array[3] : NULL;
+                $altDe = isset($array[4]) ? $array[4] : NULL;
+                if ($array[0] > 0) {
+                    try{
+                        $sth = $this->$_pdo->prepare('UPDATE `img` SET `altimg_fr` = "'.$altFr.'", `altimg_en` = "'.$altEn.'", `altimg_es` = "'.$altEs.'", `altimg_de` = "'.$altDe.'"  WHERE `img`.`idimg` = '.$id);
+                        $sth->execute();
+                        $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        return true;
+                        } catch(PDOException $e){
+                        return (array) [false, $e->getMessage()];
+                    }
+                } else {
+                    return false;
+                }
+                    var_dump($array);
+            }
 
 
     } //EOF

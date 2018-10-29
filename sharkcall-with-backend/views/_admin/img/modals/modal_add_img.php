@@ -1,5 +1,5 @@
 <!-- Modal Media -->
-    <div class="modal fade" id="modal_add_img" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="modal_add_img" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -19,7 +19,7 @@
                         <label for="inputMediaAltDe">Alt Deutsh : </label>
                         <input type="text" name="inputMediaAltDe" class="form-control" id="inputMediaAltDe">
                     </div>
-                <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token']; ?>">
+                <input type="hidden" id="token" name="token" value="<?php //echo $_SESSION['token']; ?>">
                     
                 </div>
 
@@ -29,12 +29,12 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="submit" id="btn_addContent" class="btn btn-success btn-hover-green" data-action="save" role="button" onclick="uploadMediaSubmit();">Save</button>
+                            <button type="submit" id="btn_addContent" class="btn btn-success btn-hover-green" data-action="save" role="button" onclick="uploadMediaSubmit([ jQuery('#inputMediaAltFr').val(), jQuery('#inputMediaAltEn').val(), jQuery('#inputMediaAltEs').val(), jQuery('#inputMediaAltDe').val() ]);">Save</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
+    </div> -->
 <!-- /Modal Media -->
