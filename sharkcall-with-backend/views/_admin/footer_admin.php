@@ -32,12 +32,24 @@
 
     <script>
         $(document).ready( function () {
-            $('#table_categories').DataTable();
-            $('#table_subCategories').DataTable();
-            $('#table_cities').DataTable();
-            $('#table_users').DataTable();
-            $('#table_contents').DataTable();
-            $('#table_media').DataTable();
+            $('#table_categories').DataTable({
+                "order": [ 0, 'desc' ]
+            });
+            $('#table_subCategories').DataTable({
+                "order": [ 0, 'desc' ]
+            });
+            $('#table_cities').DataTable({
+                "order": [ 0, 'desc' ]
+            });
+            $('#table_users').DataTable({
+                "order": [ 0, 'desc' ]
+            });
+            $('#table_contents').DataTable({
+                "order": [ 0, 'desc' ]
+            });
+            $('#table_media').DataTable({
+                "order": [ 0, 'desc' ]
+            });
             $('#summernoteContent').summernote();
             $('#summernoteUpdateContent').summernote();
         });
