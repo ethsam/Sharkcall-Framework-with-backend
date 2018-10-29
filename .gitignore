@@ -13,3 +13,7 @@ Thumbs.db
 # Logs               #
 ######################
 *.log
+
+# SQL               #
+######################
+sharkcall-with-backend/sharkTourisme.sql
