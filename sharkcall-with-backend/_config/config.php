@@ -24,7 +24,7 @@ define("PATH", substr($_SERVER['PHP_SELF'], 0, -9));
 
 // DataBase informations
 define("DATABASE_HOST", "localhost");
-define("DATABASE_NAME", "appTourisme");
+define("DATABASE_NAME", "sharkTourisme");
 define("DATABASE_USER", "root");
 define("DATABASE_PASSWORD", "root");
 
