@@ -27,6 +27,9 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/cr-1.5.0/r-2.2.2/sc-1.5.0/datatables.min.js"></script>
 
+    <!-- DropzoneJS -->
+    <script type="text/javascript" src="<?php echo constant('PATH') . 'assets/admin-vendor/dropzonejs/dropzone.js' ?>"></script>
+
     <script>
         $(document).ready( function () {
             $('#table_categories').DataTable();
@@ -34,15 +37,14 @@
             $('#table_cities').DataTable();
             $('#table_users').DataTable();
             $('#table_contents').DataTable();
+            $('#table_media').DataTable();
             $('#summernoteContent').summernote();
             $('#summernoteUpdateContent').summernote();
         });
     </script>
 
-    <script>
-    
-    </script>
-    
 </body>
 
 </html>
+
+

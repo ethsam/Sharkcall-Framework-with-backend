@@ -27,7 +27,6 @@ function dataTableCategory($json) {
         return $var;
 }
 
-
 /**
 * function dataTableSubCategory()
 * @param Json = list subcategory
@@ -71,6 +70,7 @@ function dataTableCity($json) {
         }
         return $var;
 }
+
 /**
 * function dataTableUser()
 * @param Json = list user
@@ -127,6 +127,40 @@ function dataTableContent($json) {
                         </div>
                         <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-danger" onclick="postDeleteContent('.$value->id_content.')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        </div>
+                        </td>
+                        </tr>';
+        }
+        return $var;
+}
+
+/**
+ * function dataTableImg()
+ * @param Json = list img
+ * @return String = list of img with tr td balise
+ * @date 27-10-2018
+ * @author Samuel Ethève - https://ethsam.fr
+ */
+function dataTableImg($json) {
+
+        foreach ($json as $key => $value) {
+
+                $var .= "<tr>
+                                <td>" . $value->idimg . "</td>
+                                <td>" . $value->imgurl . "</td>
+                                <td><img style='width:250px;' src=" . PATH . $value->imgurl . "></td>
+                                <td style='display:none;'>" . $value->altimg_fr . "</td>
+                                <td style='display:none;'>" . $value->altimg_en . "</td>
+                                <td style='display:none;'>" . $value->altimg_es . "</td>
+                                <td style='display:none;'>" . $value->altimg_de . "</td>
+                                
+                        ";
+                $var .= '<td style="padding-left:0; padding-right:0;">
+                        <div class="col-lg-6">
+                        <button type="button" class="btn btn-large btn-block btn-info" onclick="postUpdateShow(\'modal_update_img\')"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
+                        </div>
+                        <div class="col-lg-6">
+                        <button type="button" class="btn btn-large btn-block btn-danger" onclick="postDeleteImg(' . $value->idimg . ')"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </div>
                         </td>
                         </tr>';
@@ -201,4 +235,5 @@ function listAllSelectUserRole($userRoleList){
     }
     return $var;
 }
+
 ?>

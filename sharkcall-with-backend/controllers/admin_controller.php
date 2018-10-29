@@ -167,8 +167,25 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                 // echo $response;
                 die;
                 break;
-
-
+            /**
+             * ! UPLOAD MEDIA
+             */
+            case 'uploadMedia':
+                if (!empty($_FILES)) {
+                    $upload_dir = "assets/img/uploads/";
+                    $fileName = $_FILES['file']['name'];
+                    $uploaded_file = $upload_dir . $fileName;
+                    if (move_uploaded_file($_FILES['file']['tmp_name'], $uploaded_file)) {
+                        // //insert file information into db table
+                        // $mysql_insert = "INSERT INTO uploads (file_name, upload_time)VALUES('" . $fileName . "','" . date("Y-m-d H:i:s") . "')";
+                        // mysqli_query($conn, $mysql_insert) or die("database error:" . mysqli_error($conn));
+                        echo 'File Uploaded';
+                    } else {
+                        echo 'Error upload';
+                    }
+                }
+            die;
+            break;
 
 
             default:
@@ -177,7 +194,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                 break;
         }
     } else {
-        echo "Vous n'avez pas l'autorisation !";
+        echo "Wrong Token";
     }
 
 }
@@ -207,6 +224,10 @@ switch ($method) {
 
                 case 'contents':
                     $pageAdmin = '/contents/admin_contents_crud_template';
+                    break;
+
+                case 'img':
+                    $pageAdmin = '/img/admin_img_crud_template';
                     break;
 
 

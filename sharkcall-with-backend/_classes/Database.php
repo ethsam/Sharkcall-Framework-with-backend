@@ -248,7 +248,7 @@
             */
             public function createCategory($string) {
                 if (!empty($string)) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`) VALUES (NULL, "'.$string.'");');
+                    $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`, `imgcategory`) VALUES (NULL, "'.$string.'", NULL);');
                 } else {
                     return false;
                 }
@@ -514,6 +514,49 @@
                 $json = json_decode(json_encode($results));
                 return $json;
             }
+
+        /* --------------------- */
+        /*    IMG CRUD           */
+        /* --------------------- */
+
+            /**
+             * public function createImgUrl()
+             * @param Array = Contain data for DB Insert
+             * @return Boolean = True or False
+             * @date 27-10-2018
+             * @author Samuel Ethève - https://ethsam.fr
+             */
+            public function createImgUrl($array) {
+                $img = trim($array[0]);
+                $img = !empty($array[0]) ? $array[0] : 'https://via.placeholder.com/1920x1080';
+                if (!empty($array)) {
+                    $sth = $this->$_pdo->prepare('INSERT INTO `img` (`idimg`, `imgurl`, `altimg-fr`, `altimg-en`, `altimg-es`, `altimg-de`) VALUES (NULL, "' . $img . '", "' . $array[1] . '", "' . $array[2] . '", "' . $array[3] . '", "' . $array[4] . '");');
+                } else {
+                    return false;
+                }
+                $sth->execute();
+                return true;
+            }
+
+            /**
+             * public function readAllImg()
+             * @param int = INTEGER
+             * @return JSON = list or single content
+             * @date 27-10-2018
+             * @author Samuel Ethève - https://ethsam.fr
+             */
+            public function readAllImg($int = 0) {
+                if ($int < 1) {
+                    $sth = $this->$_pdo->prepare('SELECT *  FROM `img`');
+                } else {
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `img` WHERE `idimg` = ' . $int);
+                }
+                $sth->execute();
+                $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+                $json = json_decode(json_encode($results));
+                return $json;
+            }
+
 
 
     } //EOF

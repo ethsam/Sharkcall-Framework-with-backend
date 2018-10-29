@@ -28,6 +28,9 @@
     <!-- Morris Charts CSS -->
     <link href="<?php echo constant('PATH') .'assets/admin-vendor/morrisjs/morris.css'?>" type="text/css" rel="stylesheet">
 
+    <!-- Dropzone CSS -->
+    <link href="<?php echo constant('PATH') . 'assets/admin-vendor/dropzonejs/dropzone.css'?>" type="text/css" rel="stylesheet">
+
     <!-- SummerNote -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 

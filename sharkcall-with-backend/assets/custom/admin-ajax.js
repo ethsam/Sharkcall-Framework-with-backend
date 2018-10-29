@@ -4,41 +4,16 @@ var token = jQuery('#token').val();
     /**
     * Show Modal
     */
-    // function showAddCategory() {
-    //     jQuery('#modal_add_categories').modal('show');
-    // }
-
-    // function postUpdateCategoryShow() {
-    //     jQuery('#modal_update_categories').modal('show');
-    // }
-
-    // function showAddSubCategory() {
-    //     jQuery('#modal_add_subcategories').modal('show');
-    // }
-
-    // function postUpdateSubCategoryShow() {
-    //     jQuery('#modal_update_subcategories').modal('show');
-    // }
-
-    // function showAddUser() {
-    //     jQuery('#modal_add_users').modal('show');
-    // }
-
-    // function postUpdateUserShow() {
-    //     jQuery('#modal_update_users').modal('show');
-    // }
-
-    // function showAddContent() {
-    //     jQuery('#modal_add_contents').modal('show');
-    // }
     function showModal(modal) {
         jQuery('#' + modal).modal('show');
+        console.log('Show Modal : ' + modal);
         // jQuery('#inputContentContentBlock .note-editor.note-frame .note-editing-area .note-editable').text("");
     }
-
     function postUpdateShow(modal) {
         jQuery('#' + modal).modal('show');
     }
+
+
     /**
      * Click on Datables
      */
@@ -94,92 +69,119 @@ var token = jQuery('#token').val();
         });
     });
 
-jQuery('#table_categories tbody').on('click', 'tr', function () {
-    var dataCategory = jQuery('#table_categories').DataTable().row(this).data();
-    jQuery('#idUpdateCategory').text(dataCategory[0]);
-    var id = jQuery('#idUpdateCategory').text();
-    jQuery.ajax({
-        type: "POST",
-        url: "http://localhost:8888/sharkcall/admin/",
-        data: {
-            order: 'getInfoModalCategory',
-            data: id,
-            token: token
-        },
-        success: function (msg) {
-            console.log(msg);
-            var obj = JSON.parse(msg);
-            jQuery('#inputUpdateDesignation').val(obj[0].designation_cat);
-        },
-        error: function (msg) {
-            console.log(msg);
-        },
-        dataType: "text"
+    jQuery('#table_categories tbody').on('click', 'tr', function () {
+        var dataCategory = jQuery('#table_categories').DataTable().row(this).data();
+        jQuery('#idUpdateCategory').text(dataCategory[0]);
+        var id = jQuery('#idUpdateCategory').text();
+        jQuery.ajax({
+            type: "POST",
+            url: "http://localhost:8888/sharkcall/admin/",
+            data: {
+                order: 'getInfoModalCategory',
+                data: id,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                var obj = JSON.parse(msg);
+                jQuery('#inputUpdateDesignation').val(obj[0].designation_cat);
+            },
+            error: function (msg) {
+                console.log(msg);
+            },
+            dataType: "text"
+        });
     });
-});
 
-jQuery('#table_cities tbody').on('click', 'tr', function () {
-    var dataCity = jQuery('#table_cities').DataTable().row(this).data();
-    jQuery('#idUpdateCity').text(dataCity[0]);
-    var id = jQuery('#idUpdateCity').text();
-    jQuery.ajax({
-        type: "POST",
-        url: "http://localhost:8888/sharkcall/admin/",
-        data: {
-            order: 'getInfoModalCity',
-            data: id,
-            token: token
-        },
-        success: function (msg) {
-            console.log(msg);
-            var obj = JSON.parse(msg);
-            jQuery('#inputUpdateDesignation').val(obj[0].cityName);
-        },
-        error: function (msg) {
-            console.log(msg);
-        },
-        dataType: "text"
+    jQuery('#table_cities tbody').on('click', 'tr', function () {
+        var dataCity = jQuery('#table_cities').DataTable().row(this).data();
+        jQuery('#idUpdateCity').text(dataCity[0]);
+        var id = jQuery('#idUpdateCity').text();
+        jQuery.ajax({
+            type: "POST",
+            url: "http://localhost:8888/sharkcall/admin/",
+            data: {
+                order: 'getInfoModalCity',
+                data: id,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                var obj = JSON.parse(msg);
+                jQuery('#inputUpdateDesignation').val(obj[0].cityName);
+            },
+            error: function (msg) {
+                console.log(msg);
+            },
+            dataType: "text"
+        });
     });
-});
 
-jQuery('#table_contents tbody').on('click', 'tr', function () {
-    var dataContent = jQuery('#table_contents').DataTable().row(this).data();
-    jQuery('#idUpdateContent').text(dataContent[0]);
-    var id = jQuery('#idUpdateContent').text();
-    jQuery.ajax({
-        type: "POST",
-        url: "http://localhost:8888/sharkcall/admin/",
-        data: {
-            order: 'getInfoModalContent',
-            data: id,
-            token: token
-        },
-        success: function (msg) {
-            // console.log(msg);
-            var obj = JSON.parse(msg);
-            jQuery('#idUpdateContent').val(obj[0].id_content);
-            jQuery('#inputUpdateContentTitle').val(obj[0].title);
-            jQuery('#inputUpdateContentImage').val(obj[0].img);
-            jQuery('#selectUpdateContentCategory').val(obj[0].category);
-            jQuery('#selectUpdateContentSubCategory').val(obj[0].subCategory);
-            jQuery('#selectUpdateContentCity').val(obj[0].city);
-            jQuery('#inputUpdateContentAdress').val(obj[0].adress);
-            jQuery('#inputUpdateContentPhone').val(obj[0].phone);
-            jQuery("#summernoteUpdateContent").summernote('insertText', obj[0].content);
-        },
-        error: function (msg) {
-            console.log(msg);
-        },
-        dataType: "text"
+    jQuery('#table_contents tbody').on('click', 'tr', function () {
+        var dataContent = jQuery('#table_contents').DataTable().row(this).data();
+        jQuery('#idUpdateContent').text(dataContent[0]);
+        var id = jQuery('#idUpdateContent').text();
+        jQuery.ajax({
+            type: "POST",
+            url: "http://localhost:8888/sharkcall/admin/",
+            data: {
+                order: 'getInfoModalContent',
+                data: id,
+                token: token
+            },
+            success: function (msg) {
+                // console.log(msg);
+                var obj = JSON.parse(msg);
+                jQuery('#idUpdateContent').val(obj[0].id_content);
+                jQuery('#inputUpdateContentTitle').val(obj[0].title);
+                jQuery('#inputUpdateContentImage').val(obj[0].img);
+                jQuery('#selectUpdateContentCategory').val(obj[0].category);
+                jQuery('#selectUpdateContentSubCategory').val(obj[0].subCategory);
+                jQuery('#selectUpdateContentCity').val(obj[0].city);
+                jQuery('#inputUpdateContentAdress').val(obj[0].adress);
+                jQuery('#inputUpdateContentPhone').val(obj[0].phone);
+                jQuery("#summernoteUpdateContent").summernote('insertText', obj[0].content);
+            },
+            error: function (msg) {
+                console.log(msg);
+            },
+            dataType: "text"
+        });
     });
-});
+
+    jQuery('#table_media tbody').on('click', 'tr', function () {
+        // var dataCity = jQuery('#table_cities').DataTable().row(this).data();
+        // jQuery('#idUpdateCity').text(dataCity[0]);
+        // var id = jQuery('#idUpdateCity').text();
+        // jQuery.ajax({
+        //     type: "POST",
+        //     url: "http://localhost:8888/sharkcall/admin/",
+        //     data: {
+        //         order: 'getInfoModalCity',
+        //         data: id,
+        //         token: token
+        //     },
+        //     success: function (msg) {
+        //         console.log(msg);
+        //         var obj = JSON.parse(msg);
+        //         jQuery('#inputUpdateDesignation').val(obj[0].cityName);
+        //     },
+        //     error: function (msg) {
+        //         console.log(msg);
+        //     },
+        //     dataType: "text"
+        // });
+    });
+
+
+
     /**
      * CATEGORY
      */
     function postAddCategory(designationData) {
             jQuery.ajax({
                 type: "POST",
-                url: "http://localhost:8888/sharkcall/admin/",
+                url: "admin",
                 data: { 
                     order: 'createCategory',
                     data: designationData,
@@ -481,7 +483,7 @@ jQuery('#table_contents tbody').on('click', 'tr', function () {
     function postUpdateContent(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "http://localhost:8888/Sharkcall-Framework-with-backend/sharkcall-with-backend/admin/",
             data: {
                 order: 'updateContent',
                 data: designationData,
@@ -504,3 +506,23 @@ jQuery('#table_contents tbody').on('click', 'tr', function () {
             dataType: "text"
         });
     }
+
+
+    /*
+    ! Upload Media
+    */
+function uploadMediaSubmit() {
+            console.log('no complete');
+    }
+
+    //file type validation
+    // jQuery("#file").change(function () {
+    //     var file = this.files[0];
+    //     var imagefile = file.type;
+    //     var match = ["image/jpeg", "image/png", "image/jpg"];
+    //     if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+    //         alert('Please select a valid image file (JPEG/JPG/PNG).');
+    //         jQuery("#file").val('');
+    //         return false;
+    //     }
+    // });
