@@ -176,7 +176,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                     $fileName = $_FILES['file']['name'];
                     $uploaded_file = $upload_dir . $fileName;
                     if (move_uploaded_file($_FILES['file']['tmp_name'], $uploaded_file)) {
-                        // //insert file information into db table
+                        //insert file information into db table
                         // $mysql_insert = "INSERT INTO uploads (file_name, upload_time)VALUES('" . $fileName . "','" . date("Y-m-d H:i:s") . "')";
                         // mysqli_query($conn, $mysql_insert) or die("database error:" . mysqli_error($conn));
                         echo 'File Uploaded';
@@ -186,7 +186,20 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                 }
             die;
             break;
+            case 'readAllImg':
+                $response = $dataBase->readAllImg($ajaxPostData);
+                echo json_encode($response);
+                // echo $response;
+                die;
+                break;
 
+            case 'updateAltMedia':
+                // $ajaxPostData = array_push($ajaxPostData, $uploaded_file);
+                // debug($ajaxPostData);
+                $response = $dataBase->updateAltMedia($ajaxPostData);
+                echo json_encode($response);
+                die;
+                break;
 
             default:
                 echo "Order Error : ".$ajaxPostOrder." don't exist";

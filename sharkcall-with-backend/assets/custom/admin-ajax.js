@@ -23,7 +23,7 @@ var token = jQuery('#token').val();
         var id = jQuery('#idUpdateUser').text();
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'getInfoModalUser',
                 data: id,
@@ -51,7 +51,7 @@ var token = jQuery('#token').val();
         var id = jQuery('#idUpdateSubCategory').text();
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'getInfoModalSubCategory',
                 data: id,
@@ -75,7 +75,7 @@ var token = jQuery('#token').val();
         var id = jQuery('#idUpdateCategory').text();
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'getInfoModalCategory',
                 data: id,
@@ -99,7 +99,7 @@ var token = jQuery('#token').val();
         var id = jQuery('#idUpdateCity').text();
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'getInfoModalCity',
                 data: id,
@@ -123,7 +123,7 @@ var token = jQuery('#token').val();
         var id = jQuery('#idUpdateContent').text();
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'getInfoModalContent',
                 data: id,
@@ -150,27 +150,34 @@ var token = jQuery('#token').val();
     });
 
     jQuery('#table_media tbody').on('click', 'tr', function () {
-        // var dataCity = jQuery('#table_cities').DataTable().row(this).data();
-        // jQuery('#idUpdateCity').text(dataCity[0]);
-        // var id = jQuery('#idUpdateCity').text();
-        // jQuery.ajax({
-        //     type: "POST",
-        //     url: "http://localhost:8888/sharkcall/admin/",
-        //     data: {
-        //         order: 'getInfoModalCity',
-        //         data: id,
-        //         token: token
-        //     },
-        //     success: function (msg) {
-        //         console.log(msg);
-        //         var obj = JSON.parse(msg);
-        //         jQuery('#inputUpdateDesignation').val(obj[0].cityName);
-        //     },
-        //     error: function (msg) {
-        //         console.log(msg);
-        //     },
-        //     dataType: "text"
-        // });
+        var dataMedia = jQuery('#table_media').DataTable().row(this).data();
+        jQuery('#idUpdateMedia').text(dataMedia[0]);
+        var id = jQuery('#idUpdateMedia').text();
+        jQuery('#imageForMediaEdit').attr('src', 'http://localhost:8888/Sharkcall-Framework-with-backend/sharkcall-with-backend'+dataMedia[1]);
+        jQuery.ajax({
+            type: "POST",
+            url: "admin",
+            data: {
+                order: 'readAllImg',
+                data: id,
+                token: token
+            },
+            success: function (msg) {
+                // console.log(msg);
+                var obj = JSON.parse(msg);
+                console.log(obj);
+                console.log(obj[0].altimg_fr);
+                jQuery('#idUpdateMedia').text(dataMedia[0]);
+                jQuery('#inputMediaAltFr').val(obj[0].altimg_fr);
+                jQuery('#inputMediaAltEn').val(obj[0].altimg_en);
+                jQuery('#inputMediaAltEs').val(obj[0].altimg_es);
+                jQuery('#inputMediaAltDe').val(obj[0].altimg_de);
+            },
+            error: function (msg) {
+                console.log(msg);
+            },
+            dataType: "text"
+        });
     });
 
 
@@ -208,7 +215,7 @@ var token = jQuery('#token').val();
     function postDeleteCategory(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'deleteCategory',
                 data: designationData,
@@ -233,7 +240,7 @@ var token = jQuery('#token').val();
     function postUpdateCategory(intData, designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'updateCategory',
                 data: [intData, designationData],
@@ -263,7 +270,7 @@ var token = jQuery('#token').val();
     function postAddSubCategory(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'createSubCategory',
                 data: designationData,
@@ -290,7 +297,7 @@ var token = jQuery('#token').val();
     function postDeleteSubCategory(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'deleteSubCategory',
                 data: designationData,
@@ -315,7 +322,7 @@ var token = jQuery('#token').val();
     function postUpdateSubCategory(intData, designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'updateSubCategory',
                 data: [intData, designationData],
@@ -345,7 +352,7 @@ var token = jQuery('#token').val();
     function postAddUser(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'createUser',
                 data: designationData,
@@ -373,7 +380,7 @@ var token = jQuery('#token').val();
     function postDeleteUser(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'deleteUser',
                 data: designationData,
@@ -399,7 +406,7 @@ var token = jQuery('#token').val();
     function postUpdateUser(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'updateUser',
                 data: designationData,
@@ -429,7 +436,7 @@ var token = jQuery('#token').val();
     function postAddContent(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'createContent',
                 data: designationData,
@@ -440,9 +447,9 @@ var token = jQuery('#token').val();
                 jQuery('#modal_add_contents').modal('hide');
                 jQuery('#alertSuccessAddContent').addClass('isDisplayed');
                 jQuery('#alertSuccessAddContent').removeClass('isNotDisplayed');
-                // setTimeout(() => {
-                //     window.location.reload();
-                // }, 1000);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
 
             },
             error: function (msg) {
@@ -457,7 +464,7 @@ var token = jQuery('#token').val();
     function postDeleteContent(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/sharkcall/admin/",
+            url: "admin",
             data: {
                 order: 'deleteContent',
                 data: designationData,
@@ -483,7 +490,7 @@ var token = jQuery('#token').val();
     function postUpdateContent(designationData) {
         jQuery.ajax({
             type: "POST",
-            url: "http://localhost:8888/Sharkcall-Framework-with-backend/sharkcall-with-backend/admin/",
+            url: "admin",
             data: {
                 order: 'updateContent',
                 data: designationData,
@@ -494,9 +501,9 @@ var token = jQuery('#token').val();
                 jQuery('#modal_update_contents').modal('hide');
                 jQuery('#alertSuccessUpdateContent').addClass('isDisplayed');
                 jQuery('#alertSuccessUpdateContent').removeClass('isNotDisplayed');
-                // setTimeout(() => {
-                //     window.location.reload();
-                // }, 1000);
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
             },
             error: function (msg) {
                 console.log(msg);
@@ -509,10 +516,36 @@ var token = jQuery('#token').val();
 
 
     /*
-    ! Upload Media
+    ! Update Alt Media
     */
-function uploadMediaSubmit() {
-            console.log('no complete');
+    function postUpdateAltMedia(designationData) {
+        jQuery.ajax({
+            type: "POST",
+            url: "admin",
+            data: {
+                order: 'updateAltMedia',
+                data: designationData,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                console.log(designationData);
+                jQuery('#modal_update_img').modal('hide');
+                jQuery('#alertSuccessAddMedia').addClass('isDisplayed');
+                jQuery('#alertSuccessAddMedia').removeClass('isNotDisplayed');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+
+            },
+            error: function (msg) {
+                console.log(msg);
+                jQuery('#alertFailureMedia').addClass('isDisplayed');
+                jQuery('#alertFailureMedia').removeClass('isNotDisplayed');
+            },
+            dataType: "text"
+        });
+        // console.log('no complete');
     }
 
     //file type validation
