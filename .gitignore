@@ -3,6 +3,8 @@ sharkcall-with-backend/assets/img/uploads/categories
 # OS generated files #
 ######################
 .DS_Store
+sharkcall-with-backend/assets/.DS_Store
+sharkcall-with-backend/.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
