@@ -111,13 +111,13 @@ function dataTableContent($json) {
                 $var .= "<tr>
                                 <td>".$value->id_content."</td>
                                 <td>".$value->title."</td>
-                                <td>".$value->content."</td>
+                                <td style='display:none'>".$value->content."</td>
                                 <td style='display:none'>".$value->img."</td>
                                 <td>".$category[0]->designation_cat."</td>
                                 <td>".$subCategory[0]->designation_subcat."</td>
                                 <td>".$city[0]->cityName."</td>
-                                <td>".$value->adress."</td>
-                                <td>".$value->phone."</td>
+                                <td style='display:none'>".$value->adress."</td>
+                                <td style='display:none'>".$value->phone."</td>
                                 <td style='display:none'>".$value->lat."</td>
                                 <td style='display:none'>".$value->long."</td>
                         ";

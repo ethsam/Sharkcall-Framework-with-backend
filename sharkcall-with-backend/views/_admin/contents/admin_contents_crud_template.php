@@ -44,13 +44,13 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Title</th>
-                                            <th>Content</th>
+                                            <th style="display:none">Content</th>
                                             <th style="display:none">Img</th>
                                             <th>Category</th>
                                             <th>SubCategory</th>
                                             <th>City</th>
-                                            <th>Adress</th>
-                                            <th>Phone</th>
+                                            <th style="display:none">Adress</th>
+                                            <th style="display:none">Phone</th>
                                             <th style="display:none">Latitude</th>
                                             <th style="display:none">Longitude</th>
                                             <th>Actions</th>
