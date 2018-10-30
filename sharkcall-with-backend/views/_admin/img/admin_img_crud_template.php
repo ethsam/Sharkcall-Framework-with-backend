@@ -39,7 +39,7 @@
                                     <form action="admin" class="dropzone">
                                         <div class="dz-message needsclick">
                                             <strong>Drop files here or click to upload.</strong><br />
-                                            <span class="note needsclick">(This is just a demo. The selected files are <strong>not</strong> actually uploaded.)</span>
+                                            <span class="note needsclick"></span>
                                         </div>
                                         <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token']; ?>">
                                         <input type="hidden" id="order" name="order" value="uploadMedia">
