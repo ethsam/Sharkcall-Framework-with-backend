@@ -85,6 +85,8 @@ var token = jQuery('#token').val();
                 console.log(msg);
                 var obj = JSON.parse(msg);
                 jQuery('#inputUpdateDesignation').val(obj[0].designation_cat);
+                jQuery("#inputUpdateMediaCategory").val(obj[0].idimg);
+                jQuery("#inputUpdateMediaCategory").data('picker').sync_picker_with_select();
             },
             error: function (msg) {
                 console.log(msg);
@@ -237,13 +239,13 @@ var token = jQuery('#token').val();
             dataType: "text"
         });
     }
-    function postUpdateCategory(intData, designationData) {
+    function postUpdateCategory(designationData) {
         jQuery.ajax({
             type: "POST",
             url: "admin",
             data: {
                 order: 'updateCategory',
-                data: [intData, designationData],
+                data: designationData,
                 token: token
             },
             success: function (msg) {

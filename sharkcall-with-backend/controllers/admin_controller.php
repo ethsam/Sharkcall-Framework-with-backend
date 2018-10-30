@@ -33,7 +33,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                 break;
             
             case 'updateCategory':
-                $response = $dataBase->updateCategory($ajaxPostData[0], $ajaxPostData[1]);
+                $response = $dataBase->updateCategory($ajaxPostData);
                 echo $response;
                 die;
                 break;

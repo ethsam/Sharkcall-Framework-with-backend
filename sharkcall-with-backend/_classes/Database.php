@@ -265,9 +265,9 @@
             */
             public function readAllCategory($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `categories`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `categories` INNER JOIN `img` ON `img`.`idimg` = `categories`.`imgcategory`');
                 } else {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `categories` WHERE `id_category` = '.$int);
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `categories` INNER JOIN `img` ON `img`.`idimg` = `categories`.`imgcategory` AND `categories`.`id_category` = '.$int);
                 }
                 $sth->execute();
                 $results = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -283,10 +283,11 @@
             * @date 09-10-2018
             * @author Samuel Ethève - https://ethsam.fr
             */
-            public function updateCategory($int, $string) {
-                if ($int > 0) {
+            public function updateCategory($array) {
+                
+                if ($array[0] > 0) {
                     try{
-                        $sth = $this->$_pdo->prepare('UPDATE `categories` SET `designation_cat` = "'.$string.'" WHERE `categories`.`id_category` ='.$int);
+                        $sth = $this->$_pdo->prepare('UPDATE `categories` SET `designation_cat` = "'.$array[1].'", `imgcategory` = '.$array[2].' WHERE `categories`.`id_category` ='.$array[0]);
                         $sth->execute();
                         $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         return true;
