@@ -31,6 +31,8 @@ $listAllSelectCity = listAllSelectCity($dataBase->readAllCity());
 $listAllSelectUser = listAllSelectUser($dataBase->readAllUser());
 //List All User's Role option for content form
 $listAllSelectUserRole = listAllSelectUserRole($dataBase->readAllUserRole());
+//List All Media option for category update Form
+$listAllSelectCategoryImage = listAllSelectCategoryImage($dataBase->readAllImg());
 
 //var_dump($imgList);
 ?>

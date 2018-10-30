@@ -15,11 +15,12 @@ function debug($data){
 function dataTableCategory($json) {
         foreach ($json as $key => $value) {
                 $var .= "<tr><td>".$value->id_category."</td><td>".$value->designation_cat."</td><td>";
+                $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
                 $var .= '
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-info" onclick="postUpdateShow(\'modal_update_categories\')"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-danger" onclick="postDeleteCategory('.$value->id_category.')"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                         </div>
                         </td></tr>';
@@ -236,4 +237,14 @@ function listAllSelectUserRole($userRoleList){
     return $var;
 }
 
+/*
+ * listAllSelectCategoryImage
+ * List All Media option for category update Form
+ */
+function listAllSelectCategoryImage($categoryImageList){
+    foreach ($categoryImageList as $itemSelectCategoryImage) {
+        $var .= '<option data-img-src='.PATH.$itemSelectCategoryImage->imgurl.' value="'.$itemSelectCategoryImage->idimg.'"</option>';
+    }
+    return $var;
+}
 ?>

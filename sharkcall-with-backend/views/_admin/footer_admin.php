@@ -30,6 +30,9 @@
     <!-- DropzoneJS -->
     <script type="text/javascript" src="<?php echo constant('PATH') . 'assets/admin-vendor/dropzonejs/dropzone.js' ?>"></script>
 
+    <!-- ImagePicker CSS -->
+    <script type="text/javascript" src="<?php echo constant('PATH') . 'assets/admin-vendor/image-picker/image-picker.js'?>"></script>
+
     <script>
         $(document).ready( function () {
             $('#table_categories').DataTable({
@@ -52,6 +55,7 @@
             });
             $('#summernoteContent').summernote();
             $('#summernoteUpdateContent').summernote();
+            $("#inputUpdateMediaCategory").imagepicker();
         });
     </script>
 

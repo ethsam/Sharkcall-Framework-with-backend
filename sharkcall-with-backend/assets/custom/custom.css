@@ -10,6 +10,14 @@ td{
     text-align: center;
 }
 
+img.image_picker_image{
+    width: 25vh;
+}
+
+div.form-group ul.thumbnails.image_picker_selector li .thumbnail.selected {
+    background: #5cb85c;
+}
+
 .loader {
     position: fixed;
     background-color: cornflowerblue;
