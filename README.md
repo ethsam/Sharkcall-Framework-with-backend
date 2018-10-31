@@ -17,7 +17,7 @@ Here are the advantages that pushed me to create this framework, I hope that you
 
 I would especially like to thank **[Ludovic Fontaine](https://github.com/Ludovic974)**, who has been actively involved in the improvement of the framework.
 
-Samuel - https://ethsam.fr
+**Samuel** - https://ethsam.fr
 
 ### INSTALLATION
 
