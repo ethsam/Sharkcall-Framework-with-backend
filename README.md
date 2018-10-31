@@ -1,8 +1,18 @@
-## Welcome to GitHub Pages
+## Welcome to the SharkCall Framework Project
 
-You can use the [editor on GitHub](https://github.com/ethsam/Sharkcall-Framework-with-backend/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This framework was created primarily for internal needs in the company where I work.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Indeed there is already a multitude of frameworks, however SharkCall responds to specific needs where the existing framework was either too heavy or not very economical in production.
+
+- SharkCall works with a simple shared hosting, no need to launch it via the terminal on a VPS or a dedicated server.
+- SharkCall integrates a simple customizable backend.
+- SharkCall is coded in MVC simpler and cleaner for modifications.
+- SharkCall integrates an API solution, it can be used as BackEnd.
+- SharkCall is very light.
+
+Here are the advantages that pushed me to create this framework, I hope that you would have as much pleasure as me to used it.
+
+Samuel - https://ethsam.fr
 
 ### Markdown
 
