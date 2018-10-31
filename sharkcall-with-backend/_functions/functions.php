@@ -38,11 +38,12 @@ function dataTableCategory($json) {
 function dataTableSubCategory($json) {
         foreach ($json as $key => $value) {
                 $var .= "<tr><td>".$value->id_subCategory."</td><td>".$value->designation_subcat."</td><td>";
+                $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
                 $var .= '
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-info" onclick="postUpdateShow(\'modal_update_subcategories\')"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-danger" onclick="postDeleteSubCategory('.$value->id_subCategory.')"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                         </div>
                         </td></tr>';
@@ -244,6 +245,19 @@ function listAllSelectUserRole($userRoleList){
 function listAllSelectCategoryImage($categoryImageList){
     foreach ($categoryImageList as $itemSelectCategoryImage) {
         $var .= '<option data-img-src='.PATH.$itemSelectCategoryImage->imgurl.' value="'.$itemSelectCategoryImage->idimg.'"</option>';
+    }
+    return $var;
+}
+
+/*
+ * listAllSelectSubCategoryImage
+ * List All Media option for subcategory update Form
+ */
+function listAllSelectSubCategoryImage($subCategoryImageList){
+    foreach ($subCategoryImageList as $itemSelectSubCategoryImage) {
+        // debug($itemSelectSubCategoryImage->imgurl);
+        // debug($itemSelectSubCategoryImage->idimg);
+        $var .= '<option data-img-src='.PATH.$itemSelectSubCategoryImage->imgurl.' value="'.$itemSelectSubCategoryImage->idimg.'"</option>';
     }
     return $var;
 }

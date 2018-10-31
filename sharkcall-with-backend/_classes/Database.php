@@ -241,14 +241,14 @@
 
             /**
             * public function createCategory()
-            * @params String = Contain data for DB Insert
+            * @params Array = Contain data for DB Insert
             * @return Boolean = True or False
             * @date 04-10-2018
             * @author Samuel Ethève - https://ethsam.fr
             */
-            public function createCategory($string) {
-                if (!empty($string)) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`, `imgcategory`) VALUES (NULL, "'.$string.'", NULL);');
+            public function createCategory($array) {
+                if (!empty($array[0])) {
+                    $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`, `imgcategory`) VALUES (NULL, "'.$array[0].'", '.$array[1].');');
                 } else {
                     return false;
                 }
@@ -332,9 +332,9 @@
             * @date 04-10-2018
             * @author Samuel Ethève - https://ethsam.fr
             */
-            public function createSubCategory($string) {
-                if (!empty($string)) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO subcategories (`id_subcategory`, `designation_subcat`) VALUES (NULL, "'.$string.'");');
+            public function createSubCategory($array) {
+                if (!empty($array[0])) {
+                    $sth = $this->$_pdo->prepare('INSERT INTO subcategories (`id_subCategory`, `designation_subcat`, `imgsubcategory`) VALUES (NULL, "'.$array[0].'", '.$array[1].');');
                 } else {
                     return false;
                 }
@@ -351,9 +351,9 @@
             */
             public function readAllSubCategory($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM subcategories');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM subcategories INNER JOIN `img` ON `img`.`idimg` = `subcategories`.`imgsubcategory`');
                 } else {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM subcategories WHERE `id_subcategory` = '.$int);
+                    $sth = $this->$_pdo->prepare('SELECT * FROM subcategories INNER JOIN `img` ON `img`.`idimg` = `subcategories`.`imgsubcategory` AND `id_subCategory` = '.$int);
                 }
                 $sth->execute();
                 $results = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -363,16 +363,15 @@
 
             /**
             * public function updateSubCategory()
-            * @param Int = INTEGER
-            * @param String = String
+            * @param array = array
             * @return Boolean = True or False
             * @date 09-10-2018
             * @author Samuel Ethève - https://ethsam.fr
             */
-            public function updateSubCategory($int, $string) {
-                if ($int > 0) {
+            public function updateSubCategory($array) {
+                if ($array[0] > 0) {
                     try{
-                        $sth = $this->$_pdo->prepare('UPDATE `subcategories` SET `designation_subcat` = "'.$string.'" WHERE `subcategories`.`id_subcategory` ='.$int);
+                        $sth = $this->$_pdo->prepare('UPDATE `subcategories` SET `designation_subcat` = "'.$array[1].'", `imgsubcategory` = '.$array[2].' WHERE `subcategories`.`id_subcategory` ='.$array[0]);
                         $sth->execute();
                         $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         return true;

@@ -30,7 +30,7 @@
     <!-- DropzoneJS -->
     <script type="text/javascript" src="<?php echo constant('PATH') . 'assets/admin-vendor/dropzonejs/dropzone.js' ?>"></script>
 
-    <!-- ImagePicker CSS -->
+    <!-- ImagePicker Js -->
     <script type="text/javascript" src="<?php echo constant('PATH') . 'assets/admin-vendor/image-picker/image-picker.js'?>"></script>
 
     <script>
@@ -55,7 +55,12 @@
             });
             $('#summernoteContent').summernote();
             $('#summernoteUpdateContent').summernote();
+
+            $("#inputMediaCategory").imagepicker();
             $("#inputUpdateMediaCategory").imagepicker();
+
+            $("#inputMediaSubCategory").imagepicker();
+            $("#inputUpdateMediaSubCategory").imagepicker();
         });
     </script>
 

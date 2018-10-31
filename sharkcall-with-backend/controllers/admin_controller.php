@@ -54,7 +54,7 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])
                 break;
             
             case 'updateSubCategory':
-                $response = $dataBase->updateSubCategory($ajaxPostData[0], $ajaxPostData[1]);
+                $response = $dataBase->updateSubCategory($ajaxPostData);
                 echo $response;
                 die;
                 break;

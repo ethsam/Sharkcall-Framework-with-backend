@@ -37,6 +37,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Description</th>
+                                            <th>Image</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>

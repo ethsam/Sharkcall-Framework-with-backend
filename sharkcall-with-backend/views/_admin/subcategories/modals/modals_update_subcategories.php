@@ -15,13 +15,20 @@
                             <label for="inputUpdateSubDesignation">Designation : </label>
                             <input type="text" name="inputUpdateSubDesignation" class="form-control" id="inputUpdateSubDesignation" placeholder="Designation">
                         </div>
+                        <label for="inputUpdateMediaSubCategory">Select Image for this subcategory : </label>
+                        <div class="form-group" style="overflow:scroll; height:60vh;">
+                            <select name="inputUpdateMediaSubCategory" id="inputUpdateMediaSubCategory">
+                                <option value></option>
+                                <?php echo $listAllSelectSubCategoryImage; ?>
+                            </select>
+                        </div>
                     <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token']; ?>">
                     </div>
                     <div class="modal-footer">
                         <div class="btn-group btn-group-justified" role="group" aria-label="group button">
                             
                             <div class="btn-group" role="group">
-                                <button type="submit" id="btn_updateSubCategory" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateSubCategory( $('#idUpdateSubCategory').text() , $('#inputUpdateSubDesignation').val() );" role="button">Ok</button>
+                                <button type="submit" id="btn_updateSubCategory" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateSubCategory( [$('#idUpdateSubCategory').text() , $('#inputUpdateSubDesignation').val(), $('#inputUpdateMediaSubCategory').val()] );" role="button">Ok</button>
                             </div>
 
                             <div class="btn-group" role="group">

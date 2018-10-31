@@ -11,8 +11,15 @@
                     <!-- content goes here -->
                     <!-- <form id="addNewCategory" action="#" method="post"> -->
                     <div class="form-group">
-                        <label for="inputDesignation">Designation : </label>
-                        <input type="text" name="inputDesignation" class="form-control" id="inputDesignation" placeholder="Designation">
+                        <label for="inputSubDesignation">Designation : </label>
+                        <input type="text" name="inputSubDesignation" class="form-control" id="inputSubDesignation" placeholder="Designation">
+                    </div>
+                    <label for="inputMediaSubCategory">Select Image for this subcategory : </label>
+                    <div class="form-group" style="overflow:scroll; height:60vh;">
+                        <select name="inputMediaSubCategory" id="inputMediaSubCategory">
+                            <option value></option>
+                            <?php echo $listAllSelectSubCategoryImage; ?>
+                        </select>
                     </div>
                     <input type="hidden" id="token" name="token" value="<?php echo $_SESSION['token']; ?>">
                 </div>
@@ -22,7 +29,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Cancel</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="submit" id="btn_addSubCategory" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddSubCategory(jQuery('#inputDesignation').val());" role="button">Save</button>
+                            <button type="submit" id="btn_addSubCategory" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddSubCategory([jQuery('#inputSubDesignation').val(), jQuery('#inputMediaSubCategory').val()]);" role="button">Save</button>
                         </div>
                     </div>
                 </div>

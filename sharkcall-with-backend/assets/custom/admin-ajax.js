@@ -60,7 +60,9 @@ var token = jQuery('#token').val();
             success: function (msg) {
                 console.log(msg);
                 var obj = JSON.parse(msg);
-                jQuery('#inputUpdateSubDesignation').val(obj[0].designation_subCat);
+                jQuery('#inputUpdateSubDesignation').val(obj[0].designation_subcat);
+                jQuery("#inputUpdateMediaSubCategory").val(obj[0].idimg);
+                jQuery("#inputUpdateMediaSubCategory").data('picker').sync_picker_with_select();
             },
             error: function (msg) {
                 console.log(msg);
@@ -321,18 +323,18 @@ var token = jQuery('#token').val();
             dataType: "text"
         });
     }
-    function postUpdateSubCategory(intData, designationData) {
+    function postUpdateSubCategory(designationData) {
         jQuery.ajax({
             type: "POST",
             url: "admin",
             data: {
                 order: 'updateSubCategory',
-                data: [intData, designationData],
+                data: designationData,
                 token: token
             },
             success: function (msg) {
                 console.log(msg);
-                jQuery('#modal_add_Subcategories').modal('hide');
+                jQuery('#modal_add_subcategories').modal('hide');
                 jQuery('#alertSuccessUpdateSubCat').addClass('isDisplayed');
                 jQuery('#alertSuccessUpdateSubCat').removeClass('isNotDisplayed');
                 setTimeout(() => {
