@@ -15,7 +15,7 @@ Indeed there is already a multitude of frameworks, however SharkCall responds to
 Here are the advantages that pushed me to create this framework, I hope that you would have as much pleasure as me to used it.
 
 
-I would especially like to thank [Ludovic Fontaine](https://github.com/Ludovic974), who has been actively involved in the improvement of the framework.
+I would especially like to thank **[Ludovic Fontaine](https://github.com/Ludovic974)**, who has been actively involved in the improvement of the framework.
 
 Samuel - https://ethsam.fr
 
@@ -38,7 +38,6 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
