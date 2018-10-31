@@ -1,6 +1,6 @@
 ## Welcome to the SharkCall Framework Project
 
-[Image](https://github.com/ethsam/Sharkcall-Framework-with-backend/blob/master/sharkcall-with-backend/logo-SharkCall.png)
+![Logo SharkCall Project](https://github.com/ethsam/Sharkcall-Framework-with-backend/blob/master/sharkcall-with-backend/logo-SharkCall.png)
 
 This framework was created primarily for internal needs in the company where I work.
 
