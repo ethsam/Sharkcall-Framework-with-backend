@@ -7,6 +7,8 @@ $databaseConnection = new Database;
 $getCategory = $databaseConnection->readAllCategory($id);
 $getSubCategory = $databaseConnection->readAllSubCategory($id);
 $getContent = $databaseConnection->readAllContent($id);
+$getSubByCategory = $databaseConnection->getSubByCategory($id);
+$getContentBySub = $databaseConnection->getContentBySub($id);
 
 ?>
 

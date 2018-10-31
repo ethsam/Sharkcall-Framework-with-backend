@@ -21,7 +21,7 @@
                         <div class="btn-group btn-group-justified" role="group" aria-label="group button">
                             
                             <div class="btn-group" role="group">
-                                <button type="submit" id="btn_updateCity" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateCity( $('#idUpdateCity').text() , $('#inputUpdateDesignation').val() );" role="button">Ok</button>
+                                <button type="submit" id="btn_updateCity" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateCity( [$('#idUpdateCity').text() , $('#inputUpdateDesignation').val()] );" role="button">Ok</button>
                             </div>
 
                             <div class="btn-group" role="group">

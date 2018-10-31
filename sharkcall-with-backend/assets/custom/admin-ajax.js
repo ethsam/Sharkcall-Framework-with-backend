@@ -520,6 +520,90 @@ var token = jQuery('#token').val();
         });
     }
 
+    /*
+    ! CITY
+    */
+    function postAddCity(designationData) {
+        jQuery.ajax({
+            type: "POST",
+            url: "admin",
+            data: {
+                order: 'createCity',
+                data: designationData,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                jQuery('#modal_add_cities').modal('hide');
+                jQuery('#alertSuccessAddCity').addClass('isDisplayed');
+                jQuery('#alertSuccessAddCity').removeClass('isNotDisplayed');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+
+            },
+            error: function (msg) {
+                console.log(msg);
+                jQuery('#alertFailureCity').addClass('isDisplayed');
+                jQuery('#alertFailureCity').removeClass('isNotDisplayed');
+            },
+            dataType: "text"
+        });
+    }
+
+    function postDeleteCity(designationData) {
+        jQuery.ajax({
+            type: "POST",
+            url: "admin",
+            data: {
+                order: 'deleteCity',
+                data: designationData,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                jQuery('#alertSuccessDeleteCity').addClass('isDisplayed');
+                jQuery('#alertSuccessDeleteCity').removeClass('isNotDisplayed');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            },
+            error: function (msg) {
+                console.log(msg);
+                jQuery('#alertFailureCity').addClass('isDisplayed');
+                jQuery('#alertFailureCity').removeClass('isNotDisplayed');
+            },
+            dataType: "text"
+        });
+    }
+
+    function postUpdateCity(designationData) {
+        jQuery.ajax({
+            type: "POST",
+            url: "admin",
+            data: {
+                order: 'updateCity',
+                data: designationData,
+                token: token
+            },
+            success: function (msg) {
+                console.log(msg);
+                jQuery('#modal_update_cities').modal('hide');
+                jQuery('#alertSuccessUpdateCity').addClass('isDisplayed');
+                jQuery('#alertSuccessUpdateCity').removeClass('isNotDisplayed');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            },
+            error: function (msg) {
+                console.log(msg);
+                jQuery('#alertFailureCity').addClass('isDisplayed');
+                jQuery('#alertFailureCity').removeClass('isNotDisplayed');
+            },
+            dataType: "text"
+        });
+    }
+
 
     /*
     ! Update Alt Media

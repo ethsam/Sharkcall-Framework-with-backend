@@ -405,6 +405,25 @@
                 }
             }
 
+            /**
+            * public function getSubByCategory()
+            * @param int = INTEGER
+            * @return Boolean = True or False
+            * @date 09-10-2018
+            * @author Samuel Ethève - https://ethsam.fr
+            */
+            public function getSubByCategory($int = 0) { 
+                if ($int < 1) {
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories`');
+                } else {
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories` WHERE `subcategories`.`categorieid` = '.$int);
+                }
+                $sth->execute();
+                $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+                $json = json_decode(json_encode($results));
+                return $json;
+            }
+
         /* --------------------- */
         /*    CONTENT CRUD       */
         /* --------------------- */
@@ -440,7 +459,7 @@
             */
             public function readAllContent($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT *  FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover`');
                 } else {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover` AND `id_content` = '.$int);
                 }
@@ -498,6 +517,25 @@
                 } else {
                     return false;
                 }
+            }
+
+            /**
+            * public function getContentBySub()
+            * @param int = INTEGER
+            * @return Boolean = True or False
+            * @date 09-10-2018
+            * @author Samuel Ethève - https://ethsam.fr
+            */
+            public function getContentBySub($int) {
+                if ($int < 1) {
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents`');
+                } else {
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover` AND `contents`.`sous_categorie` = '.$int);
+                }
+                $sth->execute();
+                $results = $sth->fetchAll(PDO::FETCH_ASSOC);
+                $json = json_decode(json_encode($results));
+                return $json;
             }
 
         

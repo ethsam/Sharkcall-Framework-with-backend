@@ -12,6 +12,14 @@ switch ($method) {
     case 'getContent':
         $responseReq = $getContent;
         break;
+
+    case 'getSubByCategory':
+        $responseReq = $getSubByCategory;
+        break;
+
+    case 'getContentBySub':
+        $responseReq = $getContentBySub;
+        break;
     
     default:
         # code...

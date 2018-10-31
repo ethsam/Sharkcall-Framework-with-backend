@@ -26,7 +26,7 @@
                         <div class="row">
 
                             <div class="col-lg-4">
-                                <button type="button" class="btn btn-large btn-block btn-success" onclick="showAddCity()">Add City</button>
+                                <button type="button" class="btn btn-large btn-block btn-success" onclick="showModal('modal_add_cities')">Add City</button>
                             </div>
 
                             <div class="col-lg-12" style="height: 20px"></div>

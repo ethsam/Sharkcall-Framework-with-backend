@@ -1,11 +1,11 @@
 <!-- /Modal Entreprise -->
     <!-- line modal -->
-    <div class="modal fade" id="modal_add_categories" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal_add_cities" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                    <h3 class="modal-title" id="lineModalLabelAdd">Add Category</h3>
+                    <h3 class="modal-title" id="lineModalLabelAdd">Add City</h3>
                 </div>
                 <div class="modal-body">
                     <!-- content goes here -->
@@ -22,7 +22,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Annuler</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="submit" id="btn_addCategory" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddCity(jQuery('#inputDesignation').val());" role="button">Sauvegarder</button>
+                            <button type="submit" id="btn_addCity" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddCity(jQuery('#inputDesignation').val());" role="button">Sauvegarder</button>
                         </div>
                     </div>
                 </div>
