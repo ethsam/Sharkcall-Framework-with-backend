@@ -45,7 +45,7 @@
                                             <th>Id</th>
                                             <th>Title</th>
                                             <th style="display:none">Content</th>
-                                            <th style="display:none">Img</th>
+                                            <th>Img</th>
                                             <th>Category</th>
                                             <th>SubCategory</th>
                                             <th>City</th>

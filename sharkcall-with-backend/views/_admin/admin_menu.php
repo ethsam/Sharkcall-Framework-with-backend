@@ -48,7 +48,7 @@
                             <a href="<?php echo constant('PATH'); ?>admin/cities"><i class="fa fa-building fa-fw"></i> Cities</a>
                         </li>
                         <li>
-                            <a href="<?php echo constant('PATH'); ?>admin/img"><i class="fa fa-upload fa-fw"></i> Media</a>
+                            <a href="<?php echo constant('PATH'); ?>admin/img"><i class="fa fa-upload fa-fw"></i> Medias</a>
                         </li>
                         <li>
                             <a href="<?php echo constant('PATH'); ?>admin/contents"><i class="fa fa-list fa-fw"></i> Contents</a>

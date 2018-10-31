@@ -106,22 +106,28 @@ function dataTableUser($json) {
 function dataTableContent($json) {
         $database = new Database;
         foreach ($json as $key => $value) {
-                $category = $database->readAllCategory($value->category);
-                $subCategory = $database->readAllSubCategory($value->subCategory);
-                $city = $database->readAllCity($value->city);
+
+                $category = $database->readAllCategory($value->categorie);
+                $category = $category[0]->designation_cat;
+
+                $subCategory = $database->readAllSubCategory($value->sous_categorie);
+                $subCategory = $subCategory[0]->designation_subcat;
+
+                $city = $database->readAllCity($value->villes);
+                $city = $city[0]->cityName;
 
                 $var .= "<tr>
                                 <td>".$value->id_content."</td>
                                 <td>".$value->title."</td>
                                 <td style='display:none'>".$value->content."</td>
-                                <td style='display:none'>".$value->img."</td>
-                                <td>".$category[0]->designation_cat."</td>
-                                <td>".$subCategory[0]->designation_subcat."</td>
-                                <td>".$city[0]->cityName."</td>
-                                <td style='display:none'>".$value->adress."</td>
-                                <td style='display:none'>".$value->phone."</td>
-                                <td style='display:none'>".$value->lat."</td>
-                                <td style='display:none'>".$value->long."</td>
+                                <td><img style='width:200px;' src=" . PATH . $value->imgurl . "></td>
+                                <td>".$category."</td>
+                                <td>".$subCategory."</td>
+                                <td>".$city."</td>
+                                <td style='display:none'>".$value->adresse."</td>
+                                <td style='display:none'>".$value->telephone."</td>
+                                <td style='display:none'>".$value->latitude."</td>
+                                <td style='display:none'>".$value->longitude."</td>
                         ";
                 $var .= '<td style="padding-left:0; padding-right:0;">
                         <div class="col-lg-6">
@@ -258,6 +264,19 @@ function listAllSelectSubCategoryImage($subCategoryImageList){
         // debug($itemSelectSubCategoryImage->imgurl);
         // debug($itemSelectSubCategoryImage->idimg);
         $var .= '<option data-img-src='.PATH.$itemSelectSubCategoryImage->imgurl.' value="'.$itemSelectSubCategoryImage->idimg.'"</option>';
+    }
+    return $var;
+}
+
+/*
+ * listAllSelectContentImage
+ * List All Media option for content Form
+ */
+function listAllSelectContentImage($contentImageList){
+    foreach ($contentImageList as $itemSelectContentImage) {
+        // debug($itemSelectSubCategoryImage->imgurl);
+        // debug($itemSelectSubCategoryImage->idimg);
+        $var .= '<option data-img-src='.PATH.$itemSelectContentImage->imgurl.' value="'.$itemSelectContentImage->idimg.'"</option>';
     }
     return $var;
 }

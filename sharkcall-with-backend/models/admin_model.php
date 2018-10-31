@@ -32,10 +32,12 @@ $listAllSelectUser = listAllSelectUser($dataBase->readAllUser());
 //List All User's Role option for content form
 $listAllSelectUserRole = listAllSelectUserRole($dataBase->readAllUserRole());
 
-//List All Media option for category update Form
+//List All Media option for category  Form
 $listAllSelectCategoryImage = listAllSelectCategoryImage($dataBase->readAllImg());
-//List All Media option for subcategory update Form
+//List All Media option for subcategory  Form
 $listAllSelectSubCategoryImage = listAllSelectSubCategoryImage($dataBase->readAllImg());
+//List All Media option for Content  Form
+$listAllSelectContentImage = listAllSelectContentImage($dataBase->readAllImg());
 
 //var_dump($imgList);
 ?>

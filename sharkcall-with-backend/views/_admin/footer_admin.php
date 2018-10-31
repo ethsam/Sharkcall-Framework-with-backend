@@ -61,6 +61,9 @@
 
             $("#inputMediaSubCategory").imagepicker();
             $("#inputUpdateMediaSubCategory").imagepicker();
+
+            $("#inputMediaContent").imagepicker();
+            $("#inputUpdateMediaContent").imagepicker();
         });
     </script>
 

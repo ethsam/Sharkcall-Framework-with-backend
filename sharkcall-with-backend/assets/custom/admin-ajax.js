@@ -139,12 +139,14 @@ var token = jQuery('#token').val();
                 jQuery('#idUpdateContent').val(obj[0].id_content);
                 jQuery('#inputUpdateContentTitle').val(obj[0].title);
                 jQuery('#inputUpdateContentImage').val(obj[0].img);
-                jQuery('#selectUpdateContentCategory').val(obj[0].category);
-                jQuery('#selectUpdateContentSubCategory').val(obj[0].subCategory);
-                jQuery('#selectUpdateContentCity').val(obj[0].city);
-                jQuery('#inputUpdateContentAdress').val(obj[0].adress);
-                jQuery('#inputUpdateContentPhone').val(obj[0].phone);
+                jQuery('#selectUpdateContentCategory').val(obj[0].categorie);
+                jQuery('#selectUpdateContentSubCategory').val(obj[0].sous_categorie);
+                jQuery('#selectUpdateContentCity').val(obj[0].villes);
+                jQuery('#inputUpdateContentAdress').val(obj[0].adresse);
+                jQuery('#inputUpdateContentPhone').val(obj[0].telephone);
                 jQuery("#summernoteUpdateContent").summernote('insertText', obj[0].content);
+                jQuery('#inputUpdateMediaContent').val(obj[0].id_imgcover);
+                jQuery("#inputUpdateMediaContent").data('picker').sync_picker_with_select();
             },
             error: function (msg) {
                 console.log(msg);
@@ -170,7 +172,7 @@ var token = jQuery('#token').val();
                 // console.log(msg);
                 var obj = JSON.parse(msg);
                 console.log(obj);
-                console.log(obj[0].altimg_fr);
+                // console.log(obj[0].altimg_fr);
                 jQuery('#idUpdateMedia').text(dataMedia[0]);
                 jQuery('#inputMediaAltFr').val(obj[0].altimg_fr);
                 jQuery('#inputMediaAltEn').val(obj[0].altimg_en);

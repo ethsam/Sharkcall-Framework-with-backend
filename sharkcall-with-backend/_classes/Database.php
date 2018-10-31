@@ -178,7 +178,7 @@
             */
             public function readAllCity($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT *  FROM `cities`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `cities`');
                 } else {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `cities` WHERE `id_city` = '.$int);
                 }
@@ -418,9 +418,12 @@
             */
             public function createContent($array) {
                 $img = trim($array[1]);
-                $img = !empty($array[1]) ? $array[1] :'https://via.placeholder.com/1920x1080';
-                if (!empty($array)) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO `contents` (`id_content`, `title`, `content`, `img`, `category`, `subCategory`, `city`, `adress`, `phone`, `lat`, `long`) VALUES (NULL, "'.$array[0].'", "'.$array[7].'", "'.$img.'", '.$array[2].', '.$array[3].', '.$array[4].', "'.$array[5].'", "'.$array[6].'", "NULL", "NULL");');
+                $img = !empty($array[1]) ? $array[1] : 'https://via.placeholder.com/1920x1080';
+                $imgCover = trim($array[8]);
+                $imgCover = !empty($array[8]) ? $array[8] : 'https://via.placeholder.com/1920x1080';
+                
+                if (!empty($array[0])) {
+                    $sth = $this->$_pdo->prepare('INSERT INTO `contents` (`id_content`, `title`, `content`, `img`, `categorie`, `sous_categorie`, `villes`, `adresse`, `telephone`, `latitude`, `longitude`, `id_imgcover`) VALUES (NULL, "'.$array[0].'", "'.$array[7].'", "'.$img.'", '.$array[2].', '.$array[3].', '.$array[4].', "'.$array[5].'", "'.$array[6].'", "NULL", "NULL", '.$imgCover.');');
                 } else {
                     return false;
                 }
@@ -437,9 +440,9 @@
             */
             public function readAllContent($int = 0) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT *  FROM `contents`');
+                    $sth = $this->$_pdo->prepare('SELECT *  FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover`');
                 } else {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents` WHERE `id_content` = '.$int);
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover` AND `id_content` = '.$int);
                 }
                 $sth->execute();
                 $results = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -455,11 +458,14 @@
             * @author Samuel Ethève - https://ethsam.fr
             */
             public function updateContent($array) {
+                
                 $img = trim($array[2]);
                 $img = !empty($array[2]) ? $array[2] :'https://via.placeholder.com/1920x1080';
+                $imgCover = trim($array[9]);
+                $imgCover = !empty($array[9]) ? $array[9] :'https://via.placeholder.com/1920x1080';
                 if ($array[0] > 0) {
                     try{
-                        $sth = $this->$_pdo->prepare('UPDATE `contents` SET `title` = "'.$array[1].'", `content` = "'.$array[8].'", `img` = "'.$img.'", `category` = '.$array[3].', `subCategory` = '.$array[4].', `city` = '.$array[5].',`adress` = "'.$array[6].'", `phone` = "'.$array[7].'"  WHERE `contents`.`id_content` ='.$array[0]);
+                        $sth = $this->$_pdo->prepare('UPDATE `contents` SET `title` = "'.$array[1].'", `content` = "'.$array[8].'", `img` = "'.$img.'", `categorie` = '.$array[3].', `sous_categorie` = '.$array[4].', `villes` = '.$array[5].',`adresse` = "'.$array[6].'", `telephone` = "'.$array[7].'", `id_imgcover` = '.$imgCover.' WHERE `contents`.`id_content` ='.$array[0]);
                         $sth->execute();
                         $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         return true;

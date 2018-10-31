@@ -11,10 +11,17 @@
                             <label for="inputUpdateContentTitle">Title : </label>
                             <input type="text" name="inputUpdateContentTitle" class="form-control" id="inputUpdateContentTitle" placeholder="Title">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="inputUpdateContentImage">Image : </label>
                             <input type="text" name="inputUpdateContentImage" class="form-control" id="inputUpdateContentImage" placeholder="https://via.placeholder.com/1920x1080">
-                        </div>
+                        </div> -->
+                    <label for="inputUpdateMediaContent">Select Image for this content : </label>
+                    <div class="form-group" style="overflow:scroll; height:22vh;">
+                        <select name="inputUpdateMediaContent" id="inputUpdateMediaContent">
+                            <option value></option>
+                            <?php echo $listAllSelectContentImage; ?>
+                        </select>
+                    </div>
                         <div class="form-group">
                             <label for="selectUpdateContentCategory">Category : </label>
                             <select class="form-control" name="selectUpdateContentCategory" id="selectUpdateContentCategory">
@@ -53,7 +60,7 @@
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" role="button">Cancel</button>
                             </div>
                             <div class="btn-group" role="group">
-                                <button type="submit" id="btn_updateContent" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateContent([jQuery('#idUpdateContent').text(), jQuery('#inputUpdateContentTitle').val(), jQuery('#inputUpdateContentImage').val(), jQuery('#selectUpdateContentCategory').val(), jQuery('#selectUpdateContentSubCategory').val(), jQuery('#selectUpdateContentCity').val(), jQuery('#inputUpdateContentAdress').val(), jQuery('#inputUpdateContentPhone').val(), jQuery('#summernoteUpdateContent').summernote('code')]);" role="button">Ok</button>
+                                <button type="submit" id="btn_updateContent" class="btn btn-success btn-hover-green" data-action="save" onclick="postUpdateContent([jQuery('#idUpdateContent').text(), jQuery('#inputUpdateContentTitle').val(), jQuery('#inputUpdateContentImage').val(), jQuery('#selectUpdateContentCategory').val(), jQuery('#selectUpdateContentSubCategory').val(), jQuery('#selectUpdateContentCity').val(), jQuery('#inputUpdateContentAdress').val(), jQuery('#inputUpdateContentPhone').val(), jQuery('#summernoteUpdateContent').summernote('code'), jQuery('#inputUpdateMediaContent').val()]);" role="button">Ok</button>
                             </div>
                         </div>
                     </div>

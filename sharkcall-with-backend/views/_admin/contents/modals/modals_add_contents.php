@@ -11,9 +11,20 @@
                         <label for="inputContentTitle">Title : </label>
                         <input type="text" name="inputContentTitle" class="form-control" id="inputContentTitle" placeholder="Title">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputContentImage">Image : </label>
                         <input type="text" name="inputContentImage" class="form-control" id="inputContentImage" placeholder="https://via.placeholder.com/1920x1080">
+                    </div> -->
+                    <label for="inputMediaContent">Select Image for this content : </label>
+                    <div class="form-group" style="overflow:scroll; height:22vh;">
+                        <select name="inputMediaContent" id="inputMediaContent">
+                            <option value></option>
+                            <!-- <option data-img-src='https://via.placeholder.com/150' value='40'>
+                            <option data-img-src='https://via.placeholder.com/150' value='41'>
+                            <option data-img-src='https://via.placeholder.com/150' value='42'>
+                            <option data-img-src='https://via.placeholder.com/150' value='43'> -->
+                            <?php echo $listAllSelectContentImage; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                     <label for="selectContentCategory">Category : </label>
@@ -60,7 +71,7 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Annuler</button>
                         </div>
                         <div class="btn-group" role="group">
-                            <button type="submit" id="btn_addContent" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddContent([jQuery('#inputContentTitle').val(), jQuery('#inputContentImage').val(), jQuery('#selectContentCategory').val(), jQuery('#selectContentSubCategory').val(), jQuery('#selectContentCity').val(), jQuery('#inputContentAdress').val(), jQuery('#inputContentPhone').val(), jQuery('#summernoteContent').summernote('code')]);" role="button">Sauvegarder</button>
+                            <button type="submit" id="btn_addContent" class="btn btn-success btn-hover-green" data-action="save" onclick="postAddContent([jQuery('#inputContentTitle').val(), jQuery('#inputContentImage').val(), jQuery('#selectContentCategory').val(), jQuery('#selectContentSubCategory').val(), jQuery('#selectContentCity').val(), jQuery('#inputContentAdress').val(), jQuery('#inputContentPhone').val(), jQuery('#summernoteContent').summernote('code'), jQuery('#inputMediaContent').val()]);" role="button">Sauvegarder</button>
                         </div>
                     </div>
                 </div>
