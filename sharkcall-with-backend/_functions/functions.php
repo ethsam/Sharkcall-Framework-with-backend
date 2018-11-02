@@ -117,18 +117,16 @@ function dataTableContent($json) {
         $database = new Database;
         foreach ($json as $key => $value) {
 
-                $category = $database->readAllCategory($value->categorie);
+                $category = $database->readAllCategory($value->category);
                 $category = $category[0]->designation_cat;
 
-                $subCategory = $database->readAllSubCategory($value->sous_categorie);
+                $subCategory = $database->readAllSubCategory($value->subCategory);
                 $subCategory = $subCategory[0]->designation_subcat;
 
-                $city = $database->readAllCity($value->villes);
+                $city = $database->readAllCity($value->city);
                 $city = $city[0]->cityName;
 
                 $imgId = $value->idimg != "0" ? $value->idimg : "0";
-
-
 
                 $var .= "<tr>
                                 <td>".$value->id_content."</td>
@@ -142,8 +140,8 @@ function dataTableContent($json) {
                 $var .= "<td>".$category."</td>
                                 <td>".$subCategory."</td>
                                 <td>".$city."</td>
-                                <td style='display:none'>".$value->adresse."</td>
-                                <td style='display:none'>".$value->telephone."</td>
+                                <td style='display:none'>".$value->adress."</td>
+                                <td style='display:none'>".$value->phone."</td>
                                 <td style='display:none'>".$value->latitude."</td>
                                 <td style='display:none'>".$value->longitude."</td>
                         ";
