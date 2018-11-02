@@ -21,22 +21,9 @@ I would especially like to thank **[Ludovic Fontaine](https://github.com/Ludovic
 
 ### INSTALLATION
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+procedure for started coming soon
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
+```
 
 ```
 
@@ -47,9 +34,13 @@ Documentation for API service
 ```markdown
 
 - Method for get categories list /api/getCategory or /api/getCategory/1 for get single category
+
 - Method for get subcategories list /api/getSubCategory or /api/getSubCategory/1 for get single subcategory
+
 - Method for get contents list /api/getContent or /api/getContent/1 for get single content
+
 - Method for get subcategory by category api/getSubByCategory/1 integer is ID of category
+
 - Method for get content by subcategory api/getContentBySub/1 integer is ID of subcategory
 
 # Header 1
