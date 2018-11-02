@@ -1,10 +1,25 @@
-## Welcome to GitHub Pages
+## Welcome to the SharkCall Framework Project
 
-You can use the [editor on GitHub](https://github.com/ethsam/Sharkcall-Framework-with-backend/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+![Logo SharkCall Project](https://github.com/ethsam/Sharkcall-Framework-with-backend/blob/master/sharkcall-with-backend/logo-SharkCall.png)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This framework was created primarily for internal needs in the company where I work.
 
-### Markdown
+Indeed there is already a multitude of frameworks, however SharkCall responds to specific needs where the existing framework was either too heavy or not very economical in production.
+
+- SharkCall works with a simple shared hosting, no need to launch it via the terminal on a VPS or a dedicated server.
+- SharkCall integrates a simple customizable backend.
+- SharkCall is coded in MVC simpler and cleaner for modifications.
+- SharkCall integrates an API solution, it can be used as BackEnd.
+- SharkCall is very light.
+
+Here are the advantages that pushed me to create this framework, I hope that you would have as much pleasure as me to used it.
+
+
+I would especially like to thank **[Ludovic Fontaine](https://github.com/Ludovic974)**, who has been actively involved in the improvement of the framework.
+
+**Samuel** - https://ethsam.fr
+
+### INSTALLATION
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
@@ -23,15 +38,11 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
 ```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ethsam/Sharkcall-Framework-with-backend/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having trouble with SharkCall? [contact support](https://ethsam.fr) and we’ll help you sort it out.
