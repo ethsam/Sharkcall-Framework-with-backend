@@ -33,7 +33,7 @@ Documentation for API service
 
 ```markdown
 
-1. Method for get categories list '/api/getCategory' or '/api/**getCategory/1' for get single category
+1. Method for get categories list '/api/getCategory' or '/api/getCategory/1' for get single category
 
 2. Method for get subcategories list '/api/getSubCategory' or '/api/getSubCategory/1' for get single subcategory
 
