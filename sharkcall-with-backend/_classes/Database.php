@@ -422,7 +422,7 @@
                 if ($int < 1) {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories`');
                 } else {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories` WHERE `subcategories`.`categorieid` = '.$int);
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories` INNER JOIN `img` ON `img`.`idimg` = `subcategories`.`imgsubcategory` AND `subcategories`.`categorieid` = '.$int);
                 }
                 $sth->execute();
                 $results = $sth->fetchAll(PDO::FETCH_ASSOC);

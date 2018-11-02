@@ -22,7 +22,7 @@ switch ($method) {
         break;
     
     default:
-        # code...
+        $responseReq = "Error";
         break;
 }
 
