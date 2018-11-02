@@ -3,7 +3,7 @@
     <?php 
 
     $content = ['IDBLOCK'       => 'CONTENT',
-                'Pre'           => 'Cat',
+                'Pre'           => 'Content',
                 'lowerCaseName' => 'content',
                 'camelCaseName' => 'Content'
                 ]

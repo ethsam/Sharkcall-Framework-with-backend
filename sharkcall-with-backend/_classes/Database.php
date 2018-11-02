@@ -248,7 +248,9 @@
             */
             public function createCategory($array) {
                 if (!empty($array[0])) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`, `imgcategory`) VALUES (NULL, "'.$array[0].'", '.$array[1].');');
+                    $imgcategory = $array[1] != NULL ? $array[1] : "0";
+                        $sth = $this->$_pdo->prepare('INSERT INTO `categories` (`id_category`, `designation_cat`, `imgcategory`) VALUES (NULL, "'.$array[0].'", '.$imgcategory.');');
+                    
                 } else {
                     return false;
                 }
@@ -284,10 +286,11 @@
             * @author Samuel Ethève - https://ethsam.fr
             */
             public function updateCategory($array) {
+                $imgCover = $array[2] != NULL ? $array[2] : "0";
                 
                 if ($array[0] > 0) {
                     try{
-                        $sth = $this->$_pdo->prepare('UPDATE `categories` SET `designation_cat` = "'.$array[1].'", `imgcategory` = '.$array[2].' WHERE `categories`.`id_category` ='.$array[0]);
+                        $sth = $this->$_pdo->prepare('UPDATE `categories` SET `designation_cat` = "'.$array[1].'", `imgcategory` = '.$imgCover.' WHERE `categories`.`id_category` ='.$array[0]);
                         $sth->execute();
                         $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         return true;
@@ -334,7 +337,8 @@
             */
             public function createSubCategory($array) {
                 if (!empty($array[0])) {
-                    $sth = $this->$_pdo->prepare('INSERT INTO subcategories (`id_subCategory`, `designation_subcat`, `imgsubcategory`) VALUES (NULL, "'.$array[0].'", '.$array[1].');');
+                    $imgsubcategory = $array[1] != NULL ? $array[1] : "0";
+                    $sth = $this->$_pdo->prepare('INSERT INTO subcategories (`id_subCategory`, `designation_subcat`, `imgsubcategory`) VALUES (NULL, "'.$array[0].'", '.$imgsubcategory.');');
                 } else {
                     return false;
                 }
@@ -369,9 +373,11 @@
             * @author Samuel Ethève - https://ethsam.fr
             */
             public function updateSubCategory($array) {
+
+                $imgCover = $array[2] != NULL ? $array[2] : "0";
                 if ($array[0] > 0) {
                     try{
-                        $sth = $this->$_pdo->prepare('UPDATE `subcategories` SET `designation_subcat` = "'.$array[1].'", `imgsubcategory` = '.$array[2].' WHERE `subcategories`.`id_subcategory` ='.$array[0]);
+                        $sth = $this->$_pdo->prepare('UPDATE `subcategories` SET `designation_subcat` = "'.$array[1].'", `imgsubcategory` = '.$imgCover.' WHERE `subcategories`.`id_subcategory` ='.$array[0]);
                         $sth->execute();
                         $this->$_pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         return true;
@@ -438,8 +444,7 @@
             public function createContent($array) {
                 $img = trim($array[1]);
                 $img = !empty($array[1]) ? $array[1] : 'https://via.placeholder.com/1920x1080';
-                $imgCover = trim($array[8]);
-                $imgCover = !empty($array[8]) ? $array[8] : 'https://via.placeholder.com/1920x1080';
+                $imgCover = $array[8] != NULL ? $array[8] : "0";
                 
                 if (!empty($array[0])) {
                     $sth = $this->$_pdo->prepare('INSERT INTO `contents` (`id_content`, `title`, `content`, `img`, `categorie`, `sous_categorie`, `villes`, `adresse`, `telephone`, `latitude`, `longitude`, `id_imgcover`) VALUES (NULL, "'.$array[0].'", "'.$array[7].'", "'.$img.'", '.$array[2].', '.$array[3].', '.$array[4].', "'.$array[5].'", "'.$array[6].'", "NULL", "NULL", '.$imgCover.');');
@@ -480,8 +485,8 @@
                 
                 $img = trim($array[2]);
                 $img = !empty($array[2]) ? $array[2] :'https://via.placeholder.com/1920x1080';
-                $imgCover = trim($array[9]);
-                $imgCover = !empty($array[9]) ? $array[9] :'https://via.placeholder.com/1920x1080';
+                $imgCover = $array[9] != NULL ? $array[9] : "0";
+
                 if ($array[0] > 0) {
                     try{
                         $sth = $this->$_pdo->prepare('UPDATE `contents` SET `title` = "'.$array[1].'", `content` = "'.$array[8].'", `img` = "'.$img.'", `categorie` = '.$array[3].', `sous_categorie` = '.$array[4].', `villes` = '.$array[5].',`adresse` = "'.$array[6].'", `telephone` = "'.$array[7].'", `id_imgcover` = '.$imgCover.' WHERE `contents`.`id_content` ='.$array[0]);

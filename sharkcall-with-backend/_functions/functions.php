@@ -14,8 +14,13 @@ function debug($data){
 */
 function dataTableCategory($json) {
         foreach ($json as $key => $value) {
+                $imgId = $value->idimg != "0" ? $value->idimg : "0";
                 $var .= "<tr><td>".$value->id_category."</td><td>".$value->designation_cat."</td><td>";
-                $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
+                if($imgId == "0"){
+                        $var .= "<img style='width:250px;' src=" . $value->imgurl . "></td><td>";
+                } else {
+                        $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
+                }
                 $var .= '
                         <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-info" onclick="postUpdateShow(\'modal_update_categories\')"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
@@ -37,8 +42,13 @@ function dataTableCategory($json) {
 */
 function dataTableSubCategory($json) {
         foreach ($json as $key => $value) {
+                $imgId = $value->idimg != "0" ? $value->idimg : "0";
                 $var .= "<tr><td>".$value->id_subCategory."</td><td>".$value->designation_subcat."</td><td>";
-                $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
+                if($imgId == "0"){
+                        $var .= "<img style='width:250px;' src=" . $value->imgurl . "></td><td>";
+                } else {
+                        $var .= "<img style='width:250px;' src=" . PATH . $value->imgurl . "></td><td>";
+                }
                 $var .= '
                         <div class="col-lg-6">
                         <button type="button" class="btn btn-large btn-block btn-info" onclick="postUpdateShow(\'modal_update_subcategories\')"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit</button>
@@ -116,12 +126,20 @@ function dataTableContent($json) {
                 $city = $database->readAllCity($value->villes);
                 $city = $city[0]->cityName;
 
+                $imgId = $value->idimg != "0" ? $value->idimg : "0";
+
+
+
                 $var .= "<tr>
                                 <td>".$value->id_content."</td>
                                 <td>".$value->title."</td>
-                                <td style='display:none'>".$value->content."</td>
-                                <td><img style='width:200px;' src=" . PATH . $value->imgurl . "></td>
-                                <td>".$category."</td>
+                                <td style='display:none'>".$value->content."</td><td>";
+                                if($imgId == "0"){
+                                        $var .= "<img style='width:200px;' src=" . $value->imgurl . "></td>";
+                                } else {
+                                        $var .= "<img style='width:200px;' src=" . PATH . $value->imgurl . "></td>";
+                                }
+                $var .= "<td>".$category."</td>
                                 <td>".$subCategory."</td>
                                 <td>".$city."</td>
                                 <td style='display:none'>".$value->adresse."</td>
@@ -250,7 +268,9 @@ function listAllSelectUserRole($userRoleList){
  */
 function listAllSelectCategoryImage($categoryImageList){
     foreach ($categoryImageList as $itemSelectCategoryImage) {
+        if ($itemSelectCategoryImage->idimg != 0){
         $var .= '<option data-img-src='.PATH.$itemSelectCategoryImage->imgurl.' value="'.$itemSelectCategoryImage->idimg.'"</option>';
+        }
     }
     return $var;
 }
@@ -263,7 +283,9 @@ function listAllSelectSubCategoryImage($subCategoryImageList){
     foreach ($subCategoryImageList as $itemSelectSubCategoryImage) {
         // debug($itemSelectSubCategoryImage->imgurl);
         // debug($itemSelectSubCategoryImage->idimg);
-        $var .= '<option data-img-src='.PATH.$itemSelectSubCategoryImage->imgurl.' value="'.$itemSelectSubCategoryImage->idimg.'"</option>';
+        if ($itemSelectSubCategoryImage->idimg != 0){
+                $var .= '<option data-img-src='.PATH.$itemSelectSubCategoryImage->imgurl.' value="'.$itemSelectSubCategoryImage->idimg.'"</option>';
+        }
     }
     return $var;
 }
@@ -276,7 +298,9 @@ function listAllSelectContentImage($contentImageList){
     foreach ($contentImageList as $itemSelectContentImage) {
         // debug($itemSelectSubCategoryImage->imgurl);
         // debug($itemSelectSubCategoryImage->idimg);
+        if ($itemSelectContentImage->idimg != 0){
         $var .= '<option data-img-src='.PATH.$itemSelectContentImage->imgurl.' value="'.$itemSelectContentImage->idimg.'"</option>';
+        }
     }
     return $var;
 }

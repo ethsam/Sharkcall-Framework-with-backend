@@ -6,7 +6,7 @@ var token = jQuery('#token').val();
     */
     function showModal(modal) {
         jQuery('#' + modal).modal('show');
-        console.log('Show Modal : ' + modal);
+        // console.log('Show Modal : ' + modal);
         // jQuery('#inputContentContentBlock .note-editor.note-frame .note-editing-area .note-editable').text("");
     }
     function postUpdateShow(modal) {
@@ -32,7 +32,7 @@ var token = jQuery('#token').val();
             success: function (msg) {
                 console.log(msg);
                 var obj = JSON.parse(msg);
-                console.log(obj);
+              // console.log(obj);
                 
                 jQuery('#inputUpdateName').val(obj[0].name);
                 jQuery('#inputUpdateEmail').val(obj[0].email);
@@ -171,7 +171,7 @@ var token = jQuery('#token').val();
             success: function (msg) {
                 // console.log(msg);
                 var obj = JSON.parse(msg);
-                console.log(obj);
+              // console.log(obj);
                 // console.log(obj[0].altimg_fr);
                 jQuery('#idUpdateMedia').text(dataMedia[0]);
                 jQuery('#inputMediaAltFr').val(obj[0].altimg_fr);
@@ -254,7 +254,7 @@ var token = jQuery('#token').val();
             },
             success: function (msg) {
                 console.log(msg);
-                jQuery('#modal_add_categories').modal('hide');
+                jQuery('#modal_update_categories').modal('hide');
                 jQuery('#alertSuccessUpdateCat').addClass('isDisplayed');
                 jQuery('#alertSuccessUpdateCat').removeClass('isNotDisplayed');
                 setTimeout(() => {
@@ -336,7 +336,7 @@ var token = jQuery('#token').val();
             },
             success: function (msg) {
                 console.log(msg);
-                jQuery('#modal_add_subcategories').modal('hide');
+                jQuery('#modal_update_subcategories').modal('hide');
                 jQuery('#alertSuccessUpdateSubCat').addClass('isDisplayed');
                 jQuery('#alertSuccessUpdateSubCat').removeClass('isNotDisplayed');
                 setTimeout(() => {

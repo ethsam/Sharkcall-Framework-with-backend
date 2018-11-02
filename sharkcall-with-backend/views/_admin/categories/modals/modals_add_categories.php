@@ -18,10 +18,7 @@
                     <div class="form-group" style="overflow:scroll; height:60vh;">
                         <select name="inputMediaCategory" id="inputMediaCategory">
                             <option value></option>
-                            <!-- <option data-img-src='https://via.placeholder.com/150' value='40'>
-                            <option data-img-src='https://via.placeholder.com/150' value='41'>
-                            <option data-img-src='https://via.placeholder.com/150' value='42'>
-                            <option data-img-src='https://via.placeholder.com/150' value='43'> -->
+                            <option value="0"></option>;
                             <?php echo $listAllSelectCategoryImage; ?>
                         </select>
                     </div>

@@ -19,6 +19,7 @@
                         <div class="form-group" style="overflow:scroll; height:60vh;">
                             <select name="inputUpdateMediaSubCategory" id="inputUpdateMediaSubCategory">
                                 <option value></option>
+                                <option value="0"></option>;
                                 <?php echo $listAllSelectSubCategoryImage; ?>
                             </select>
                         </div>
