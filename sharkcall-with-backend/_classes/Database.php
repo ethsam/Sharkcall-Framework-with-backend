@@ -533,7 +533,7 @@
             */
             public function getContentBySub($int) {
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover` AND `contents`.`subCategory`');
                 } else {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `contents` INNER JOIN `img` ON `img`.`idimg` = `contents`.`id_imgcover` AND `contents`.`subCategory` = '.$int);
                 }
