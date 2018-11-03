@@ -420,7 +420,7 @@
             */
             public function getSubByCategory($int = 0) { 
                 if ($int < 1) {
-                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories`');
+                    $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories` INNER JOIN `img` ON `img`.`idimg` = `subcategories`.`imgsubcategory` AND `subcategories`.`categorieid`');
                 } else {
                     $sth = $this->$_pdo->prepare('SELECT * FROM `subcategories` INNER JOIN `img` ON `img`.`idimg` = `subcategories`.`imgsubcategory` AND `subcategories`.`categorieid` = '.$int);
                 }
